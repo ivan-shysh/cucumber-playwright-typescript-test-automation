@@ -4,10 +4,6 @@ Feature: As a user I expect to be able to navigate to the home page
   @smoke  #most important key scenarios that we want to run as part of automation
   @regression  #will likely be on every scenario, to run a full regression suite, either locally or in CI 
   Scenario: As a user I expect to be able to see contacts
-    Given I am on the home page
+    Given I am on the "home" page
     Then the contacts header should contain the text Contacts
 
-
-
-
-# There was a change in package.json in this lesson as well. Instead of one npm cucumber script, there were three separate created, one for each tag
