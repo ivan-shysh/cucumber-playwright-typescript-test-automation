@@ -27,7 +27,19 @@ Before(async(scenario) => {
 });
 
 // runs after every test
-After(async() => {
+After(async(scenario) => {
+
+    const scenarioStatus = scenario.result?.status;
+    // The optional chaining operator (?.) offers a safer and more concise way to access properties deep within object chains, 
+    // especially when some parts of the chain may not exist. It prevents TypeErrors that could occur when accessing properties on undefined or null, 
+    // making code more robust and easier to read.
+
+    if (scenarioStatus === 'FAILED') {
+        await global.page.screenshot({
+            path: `./reports/screenshots/${scenario.pickle.name}.png`
+        });
+    }
+
     await global.page.close() // we want to clean up and close our page after each test
 });
 
