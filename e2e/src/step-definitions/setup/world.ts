@@ -8,14 +8,18 @@ import playwright, {
 
 import { World, IWorldOptions, setWorldConstructor} from "@cucumber/cucumber";
 
+//Purpose: This part of the code is defining a type named Screen. 
+//This is not creating an object but specifying a blueprint for what an object of type Screen should look like. 
+//It's a contract or a template stating that any Screen object will have three properties: browser (of type Browser), context (of type BrowserContext), and page (of type Page). 
+//Each of these types (Browser, BrowserContext, and Page) are also defined by Playwright and represent different aspects of a browser automation setup.
 export type Screen = {
     browser: Browser;
     context: BrowserContext;
     page: Page;
 }
 
-export class ScenarioWorld extends World {
-    constructor(options: IWorldOptions) {
+export class ScenarioWorld extends World { // this is inheritance - a fundamental concept of OOP; SW inherits all the properties and methods from the 'World' class but also adds its owne properties or methods or modifies existings ones
+    constructor(options: IWorldOptions) { 
         super(options)
     }
 
@@ -27,7 +31,7 @@ export class ScenarioWorld extends World {
         await this.screen?.browser?.close();
 
         const browser = await this.newBrowser(); // We will create a custom function here that will determine our new browser based on an environment variable we set
-        // and that environment variable will either dictate if our tests run on Chromium, Firefox, WebKit
+        // and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit
         const context = await browser.newContext(contextOptions);
         const page = await context.newPage();
 
