@@ -43,7 +43,11 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
     private newBrowser = async (): Promise<Browser> => {
 
         const automationBrowsers = ['chromium', 'firefox', 'webkit']
-        type AutomationBrowser = typeof automationBrowsers[number]
+        // Using typeof with indexed access to get the type of an element in the array
+        type AutomationBrowser = typeof automationBrowsers[number] // 'chromium' | 'firefox' | 'webkit'
+        // The use of typeof automationBrowsers[number] ensures that the type of automationBrowser can only be one of the three valid browser strings. 
+        // This type safety is crucial because it restricts automationBrowser to valid inputs, 
+        // which aligns with what Playwright expects when we later use it to index playwright[automationBrowser] to get a specific BrowserType
         const automationBrowser = env('UI_AUTOMATION_BROWSER') as AutomationBrowser;
 
         const browserType: BrowserType = playwright[automationBrowser];
