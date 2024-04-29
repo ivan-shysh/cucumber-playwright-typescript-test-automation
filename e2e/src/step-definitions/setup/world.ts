@@ -61,3 +61,5 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
     }
 
 }
+
+setWorldConstructor(ScenarioWorld);
