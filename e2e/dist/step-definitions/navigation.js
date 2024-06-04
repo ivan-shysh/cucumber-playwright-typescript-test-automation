@@ -30,7 +30,7 @@ function () {
     }, _callee, this);
   }));
 
-  return function (_x) {
+  return function (_x, _x2) {
     return _ref.apply(this, arguments);
   };
 }());
