@@ -1,6 +1,6 @@
 import { Then } from '@cucumber/cucumber';
-import { ScenarioWorld } from '../setup/world';
 import { expect } from '@playwright/test';
+import { ScenarioWorld } from '../setup/world';
 
 Then(
     /^the "([^"]*)" should be displayed$/,
@@ -9,10 +9,9 @@ Then(
             screen: { page },
         } = this;
 
-        console.log(`the ${elementKey} should be displayed`)
+        console.log(`the ${elementKey} should be displayed`);
 
         const locator = page.locator("[data-id='header-logo']")
-
         await expect(locator).toBeVisible;
     }
 )
