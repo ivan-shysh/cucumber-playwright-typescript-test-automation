@@ -1,8 +1,9 @@
-import { Given } from '@cucumber/cucumber'
+import { Given } from '@cucumber/cucumber';
+import { ScenarioWorld } from './setup/world';
 
 Given(
     /^I am on the "([^"]*)" page$/, //we added a regex here that takes a string inside a set of double quotes "([^"]*)"
-    async function(pageId: string) { //we declare that the function takes one parameter here, the type of the parameter is string
+    async function(this: ScenarioWorld, pageId: string) { //we declare that the function takes one parameter here, the type of the parameter is string
         const {
             screen: { page },
         } = this; // In Cucumber step definitions, 'this' is bound to the current instance fo the 'World' class

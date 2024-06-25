@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "transpile": "rimraf dist babel --extenstions .ts --out-dir dist src",
-    "cucumber": "yarn transpile && cucumber.js"
+    "transpile": "rimraf dist && babel --extensions .ts --out-dir dist src",
+    "cucumber": "yarn transpile && cucumber-js"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +17,6 @@
     "playwright": "^1.16.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"
-  }
+  },
+  "dependencies": {}
 }

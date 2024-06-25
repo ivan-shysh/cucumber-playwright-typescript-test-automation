@@ -16,12 +16,12 @@ export type Screen = {
     browser: Browser;
     context: BrowserContext;
     page: Page;
-}
+};
 
 export class ScenarioWorld extends World { // this is inheritance - a fundamental concept of OOP; 
 //SW inherits all the properties and methods from the 'World' class but also adds its own properties or methods or modifies existings ones
     constructor(options: IWorldOptions) { 
-        super(options)
+        super(options);
     }
 
     screen!: Screen;
@@ -55,11 +55,9 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         const browser = await browserType.launch({
             headless: process.env.HEADLESS !== 'false',
             args: ['--disable-web-security', '--disable-features=IsolateOrigins, site-per-process'],
-        })
+        });
         return browser;
-
-    }
-
+    };
 }
 
 setWorldConstructor(ScenarioWorld);
