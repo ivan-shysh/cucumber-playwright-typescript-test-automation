@@ -30,9 +30,10 @@ After(async function(this: ScenarioWorld, scenario) {
     // making code more robust and easier to read.
 
     if (scenarioStatus === 'FAILED') {
-        await page.screenshot({
+        const screenshot = await page.screenshot({
             path: `${env('SCREENSHOT_PATH')}${scenario.pickle.name}.png`
         });
+        await this.attach(screenshot, 'image/png')
     }
 
     await browser.close();
