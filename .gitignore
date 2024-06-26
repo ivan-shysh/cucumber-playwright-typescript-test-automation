@@ -23,3 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 .idea
+
+# Ignore the testing reports directory and everything inside it
+e2e/reports/
+
+# Ignore the folder with the transpiled js code
+e2e/dist/
