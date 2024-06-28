@@ -15,7 +15,7 @@
     "@babel/cli": "^7.24.6",
     "@babel/preset-env": "^7.24.6",
     "@cucumber/cucumber": "^8.0.0-rc.1",
-    "@playwright/test": "^1.16.1",
+    "@playwright/test": "^1.45.0",
     "dotenv": "^16.4.5",
     "playwright": "^1.16.1",
     "ts-node": "^10.4.0",
