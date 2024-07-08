@@ -2,7 +2,7 @@ import { Given } from '@cucumber/cucumber';
 import { PageId } from '../env/global';
 import {
     navigateToPage
-} from '';
+} from '../support/navigation-behavior'
 
 Given(
     /^I am on the "([^"]*)" page$/, //we added a regex here that takes a string inside a set of double quotes "([^"]*)"
