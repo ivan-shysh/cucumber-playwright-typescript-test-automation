@@ -7,7 +7,7 @@ import playwright, {
 } from "playwright";
 import { env } from '../../env/parseEnv'
 import { World, IWorldOptions, setWorldConstructor} from "@cucumber/cucumber";
-import { GlobalConfig } from "../../env/global";
+import { GlobalConfig, GlobalVariables } from "../../env/global";
 
 //Purpose: This part of the code is defining a type named Screen. 
 //This is not creating an object but specifying a blueprint for what an object of type Screen should look like. 
@@ -25,9 +25,12 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         super(options);
 
         this.globalConfig = options.parameters as GlobalConfig;
+        this.globalVariables = { currentScreen: ""}
     }
 
     globalConfig: GlobalConfig;
+
+    globalVariables: GlobalVariables;
 
     screen!: Screen;
 
