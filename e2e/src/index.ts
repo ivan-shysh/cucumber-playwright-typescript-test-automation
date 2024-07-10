@@ -3,13 +3,17 @@ import { env, getJsonFromFile } from './env/parseEnv'
 import {
     GlobalConfig,
     HostsConfig,
-    PagesConfig
+    PagesConfig, 
+    PageElementMappings,
 } from './env/global'
+import * as fs from "fs"
 
 dotenv.config({path: env('COMMON_CONFIG_FILE')})
 
-const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'))
-const pagesConfig: PagesConfig = getJsonFromFile(env('PAGES_URLS_PATH'))
+const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'));
+const pagesConfig: PagesConfig = getJsonFromFile(env('PAGES_URLS_PATH'));
+const mappingFiles = fs.readdirSync(`${process.cwd()}${env('PAGE_ELEMENTS_PATH')}`);
+
 
 const worldParameters: GlobalConfig = {
     hostsConfig,
