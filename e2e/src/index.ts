@@ -14,6 +14,7 @@ const hostsConfig: HostsConfig = getJsonFromFile(env('HOSTS_URLS_PATH'));
 const pagesConfig: PagesConfig = getJsonFromFile(env('PAGES_URLS_PATH'));
 const mappingFiles = fs.readdirSync(`${process.cwd()}${env('PAGE_ELEMENTS_PATH')}`);
 
+console.log(mappingFiles); // remove later 
 
 const worldParameters: GlobalConfig = {
     hostsConfig,
@@ -32,3 +33,9 @@ const smoke = `${common} --tags '@smoke'`;
 const regression = `${common} --tags '@regression'`;
 
 export { dev, smoke, regression };
+
+//fs stands for the File System module in Node.js. 
+//It provides an API to interact with the file system, allowing to read, write, delete, and perform other file operations.
+//fs.readdirSync is a synchronous method provided by the fs module to read the contents of a directory. 
+//It returns an array of the names of the files and directories within the specified directory.
+
