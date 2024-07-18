@@ -1,6 +1,8 @@
 import { Then } from '@cucumber/cucumber';
 import { expect } from '@playwright/test';
 import { ScenarioWorld } from '../setup/world';
+import { ElementKey } from '../../env/global';
+import { getElementLocator } from '../../support/web-element-helper'
 
 Then(
     /^the "([^"]*)" should be displayed$/,
@@ -13,8 +15,9 @@ Then(
 
         console.log(`the ${elementKey} should be displayed`);
 
-        const locator = page.locator("[data-id='header-logo']")
-        await expect(locator).toBeVisible;
+        const elementIdentifier = getElementLocator(page, elementKey, globalVariables, globalConfig);
+
+        await expect(elementIdentifier).toBeVisible;
     }
 )
 
