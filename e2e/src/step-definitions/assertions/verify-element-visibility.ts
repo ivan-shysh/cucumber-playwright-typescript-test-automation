@@ -7,6 +7,8 @@ Then(
     async function(this: ScenarioWorld, elementKey: string) {
         const {
             screen: { page },
+            globalVariables,
+            globalConfig,
         } = this;
 
         console.log(`the ${elementKey} should be displayed`);
