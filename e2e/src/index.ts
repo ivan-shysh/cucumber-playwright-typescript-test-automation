@@ -17,12 +17,12 @@ const mappingFiles = fs.readdirSync(`${process.cwd()}${env('PAGE_ELEMENTS_PATH')
 console.log(mappingFiles); // remove later 
 
 const pageElementMappings: PageElementMappings = mappingFiles.reduce(
-    (pageElementConfigAcc, file) => {
-        const key = file.replace('.json', '')
+    (pageElementConfigAcc, file) => { //pageElmentConfigAcc is the accumulator
+        const key = file.replace('.json', '') // file is the current element from the mappingFiles array being processed in each iteration
         const elementMappings = getJsonFromFile(`${env('PAGE_ELEMENTS_PATH')}${file}`);
         return {...pageElementConfigAcc, [key]: elementMappings}
-    },
-    {}
+    }, // this is a callback function, required for reduce()
+    {} // the starting value of the accumulator is this empty object
  )
 
 const worldParameters: GlobalConfig = {
