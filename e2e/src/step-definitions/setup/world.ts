@@ -33,7 +33,7 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
     globalVariables: GlobalVariables;
 
     screen!: Screen;
-
+// remove 
     async init(contextOptions?: BrowserContextOptions): Promise<Screen> {
         await this.screen?.page?.close();
         await this.screen?.context?.close();
