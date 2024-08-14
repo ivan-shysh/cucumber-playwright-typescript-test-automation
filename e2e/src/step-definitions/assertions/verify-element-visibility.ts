@@ -17,9 +17,10 @@ Then(
 
         const elementIdentifier = getElementLocator(page, elementKey, globalVariables, globalConfig);
 
-        const locator = page.locator(elementIdentifier);
-
-        await expect(locator).toBeVisible;
+        await waitFor ( async () => {
+            const isElementVisible = (await page.$(elementIdentifier)) != null
+            return isElementVisible;
+        });
     }
 )
 
