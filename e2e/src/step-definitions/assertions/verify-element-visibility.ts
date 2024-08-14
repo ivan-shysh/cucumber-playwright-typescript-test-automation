@@ -23,25 +23,3 @@ Then(
         });
     }
 )
-
-Then(
-    /^the "([^"]*)" should contain the text "(.*)"$/, // adding regex that accepts 'something' in double quotes here as well for two paremeters passed via home-page.feature
-    async function(this: ScenarioWorld, elementKey: ElementKey, expectedElementText: string) {
-        const {
-            screen: { page },
-            globalConfig,
-            globalVariables,
-        } = this;
-
-        console.log(`the ${elementKey} should contain the text ${expectedElementText}`) 
-
-        const elementIdentifier = getElementLocator(page, elementKey, globalVariables, globalConfig)
-
-        const content = await page.textContent(elementIdentifier)
-
-        await waitFor ( async () => {
-            const elementText = await page.textContent(elementIdentifier)
-            return elementText?.includes(expectedElementText)
-        });  
-    }
-)
