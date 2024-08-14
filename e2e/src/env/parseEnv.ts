@@ -11,4 +11,8 @@ export const env = (key: string): string => {
 export const getJsonFromFile = <T = Record<string, string>>(path: string): T => {
     return require(`${process.cwd()}${path}`) //process.cwd returns the absolute path from where the Node.js process was initiated, not from
     //where the getJsonFromFile function is called, so it will always return the root of the project
+};
+
+export const envNumber = (key: string): number => {
+    return Number(env(key));
 }
