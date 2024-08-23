@@ -20,6 +20,16 @@ export const navigateToPage = async (
     await page.goto(url.href);
 };
 
+const pathMathcesPageId = (
+    path: string,
+    pageId: PageId,
+    { pagesConfig }: GlobalConfig
+): boolean => {
+    const pageRegexString = pagesConfig[pageId].regex;
+    const pageRegex = new RegExp(pageRegexString);
+    return pageRegex.test(path);
+};
+
 export const currentPathMatchesPagId = (
     page: Page,
     pageId: PageId,
