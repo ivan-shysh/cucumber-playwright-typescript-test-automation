@@ -1,7 +1,8 @@
 import { Given } from '@cucumber/cucumber';
 import { PageId } from '../env/global';
 import {
-    navigateToPage
+    navigateToPage,
+    currentPathMatchesPagId,
 } from '../support/navigation-behavior'
 
 Given(
