@@ -4,6 +4,7 @@ import {
     navigateToPage,
     currentPathMatchesPagId,
 } from '../support/navigation-behavior'
+import { waitFor } from '../support/wait-for-behavior';
 
 Given(
     /^I am on the "([^"]*)" page$/, //we added a regex here that takes a string inside a set of double quotes "([^"]*)"
@@ -20,5 +21,6 @@ Given(
 
         await navigateToPage(page, pageId, globalConfig)
 
+        await waitFor (() => currentPathMatchesPagId(page, pageId, globalConfig))
     }
 )
