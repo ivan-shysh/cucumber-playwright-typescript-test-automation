@@ -2,7 +2,7 @@ import { Given } from '@cucumber/cucumber';
 import { PageId } from '../env/global';
 import {
     navigateToPage,
-    currentPathMatchesPagId,
+    currentPathMatchesPageId,
 } from '../support/navigation-behavior'
 import { waitFor } from '../support/wait-for-behavior';
 
@@ -21,6 +21,6 @@ Given(
 
         await navigateToPage(page, pageId, globalConfig)
 
-        await waitFor (() => currentPathMatchesPagId(page, pageId, globalConfig))
+        await waitFor (() => currentPathMatchesPageId(page, pageId, globalConfig))
     }
 )
