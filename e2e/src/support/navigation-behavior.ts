@@ -20,7 +20,7 @@ export const navigateToPage = async (
     await page.goto(url.href);
 };
 
-const pathMathcesPageId = (
+const pathMatchesPageId = (
     path: string,
     pageId: PageId,
     { pagesConfig }: GlobalConfig
