@@ -20,7 +20,7 @@ export const navigateToPage = async (
     await page.goto(url.href);
 };
 
-const pathMathcesPageId = (
+const pathMatchesPageId = (
     path: string,
     pageId: PageId,
     { pagesConfig }: GlobalConfig
@@ -36,7 +36,7 @@ export const currentPathMatchesPagId = (
     globalConfig: GlobalConfig,
 ): boolean => {
     const { pathname:currentPath } = new URL(page.url()) 
-    return pathMathcesPageId(currentPath, pageId, globalConfig);
+    return pathMatchesPageId(currentPath, pageId, globalConfig);
 };
 /* URL is a built-in TypeScript feature. It offers a structured way of using new URLs while making sure that 
 they are valid. It will throw errors when attempting to create invalid URLs. */
