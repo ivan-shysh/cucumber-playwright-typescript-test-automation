@@ -39,8 +39,9 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         await this.screen?.context?.close();
         await this.screen?.browser?.close();
 
-        const browser = await this.newBrowser(); // We will create a custom function here that will determine our new browser based on an environment variable we set
-        // and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit
+        const browser = await this.newBrowser(); /* We will create a custom function here that 
+        will determine our new browser based on an environment variable we set
+        and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit */
         const context = await browser.newContext(contextOptions);
         const page = await context.newPage();
 
