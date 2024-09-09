@@ -43,3 +43,29 @@ export const currentPathMatchesPageId = (
 };
 /* URL is a built-in TypeScript feature. It offers a structured way of using new URLs while making sure that 
 they are valid. It will throw errors when attempting to create invalid URLs. */
+
+export const getCurrentPageId = (
+    page: Page,
+    globalConfig: GlobalConfig,
+): PageId => {
+
+    const { pagesConfig } = globalConfig;
+
+    const pageConfigPageids = Object.keys(pagesConfig)
+
+    const { pathname: currentPath } = new URL(page.url())
+
+    const currentPageId = pageConfigPageids.find(pageId =>
+        pathMatchesPageId(currentPath, pageId, globalConfig)
+);
+
+if(!currentPageId) {
+    throw Error(
+        `Failed to get page name from current route ${currentPath} \
+        possible pages: ${JSON.stringify((pagesConfig))}`
+    )
+}
+
+return currentPageId;
+
+}
