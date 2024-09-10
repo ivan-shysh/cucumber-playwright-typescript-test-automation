@@ -62,7 +62,7 @@ export const getCurrentPageId = (
 if(!currentPageId) {
     throw Error(
         `Failed to get page name from current route ${currentPath} \
-        possible pages: ${JSON.stringify((pagesConfig))}`
+         possible pages: ${JSON.stringify((pagesConfig))}`
     )
 }
 
