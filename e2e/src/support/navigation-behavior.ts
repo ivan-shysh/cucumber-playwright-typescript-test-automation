@@ -49,7 +49,8 @@ export const getCurrentPageId = (
     globalConfig: GlobalConfig,
 ): PageId => {
 
-    const { pagesConfig } = globalConfig;
+    const { pagesConfig } = globalConfig; //will retun all page mappings - it will grab all the page mappings for each of 
+    // defined pages in our pages.json
 
     const pageConfigPageids = Object.keys(pagesConfig)
 
