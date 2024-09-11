@@ -11,8 +11,10 @@ import { GlobalConfig } from "../../env/global";
 
 //Purpose: This part of the code is defining a type named Screen. 
 //This is not creating an object but specifying a blueprint for what an object of type Screen should look like. 
-//It's a contract or a template stating that any Screen object will have three properties: browser (of type Browser), context (of type BrowserContext), and page (of type Page). 
-//Each of these types (Browser, BrowserContext, and Page) are also defined by Playwright and represent different aspects of a browser automation setup.
+//It's a contract or a template stating that any Screen object will have three properties: browser (of type Browser), 
+//context (of type BrowserContext), and page (of type Page). 
+//Each of these types (Browser, BrowserContext, and Page) are also defined by Playwright 
+//and represent different aspects of a browser automation setup.
 export type Screen = {
     browser: Browser;
     context: BrowserContext;
