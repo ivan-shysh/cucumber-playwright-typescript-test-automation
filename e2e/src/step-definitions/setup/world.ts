@@ -49,7 +49,7 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         return this.screen;
     }
 
-    private newBrowser = async (): Promise<Browser> => {
+    private newBrowser = async (): Promise<Browser> => { // This method is a property of ScenarioWorld class
 
         const automationBrowsers = ['chromium', 'firefox', 'webkit']
         // Using typeof with indexed access to get the type of an element in the array
