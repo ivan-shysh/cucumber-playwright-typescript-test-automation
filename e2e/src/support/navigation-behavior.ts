@@ -11,7 +11,9 @@ export const navigateToPage = async (
     } = process.env; /* This code is saying, "Give me the value of the UI_AUTOMATION_HOST environment variable. 
     If it doesn't exist, use 'localhost' as the default value and assign it to the hostName variable. 
     It is using object destructuring to extract a value from the process.env object, 
-    which typically contains environment variables in a Node.js application.*/
+    which typically contains environment variables in a Node.js application. Example result of this
+    destructuring: 
+    const hostHame = 'localhost'*/
 
     const hostPath = hostsConfig[`${hostName}`];
 
