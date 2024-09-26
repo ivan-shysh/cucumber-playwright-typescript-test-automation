@@ -40,11 +40,9 @@ export const currentPathMatchesPageId = (
     pageId: PageId,
     globalConfig: GlobalConfig,
 ): boolean => {
-    const { pathname:currentPath } = new URL(page.url()) 
+    const { pathname:currentPath } = new URL(page.url()) // page.url is PW method
     return pathMatchesPageId(currentPath, pageId, globalConfig);
 };
-/* URL is a built-in TypeScript feature. It offers a structured way of using new URLs while making sure that 
-they are valid. It will throw errors when attempting to create invalid URLs. */
 
 export const getCurrentPageId = (
     page: Page,
