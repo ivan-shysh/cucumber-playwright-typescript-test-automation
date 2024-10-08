@@ -1,5 +1,6 @@
 import { Page } from 'playwright'
 import { ElementKey, ElementLocator, GlobalConfig } from '../env/global'
+import { getCurrentPageId } from './navigation-behavior';
 
 export const getElementLocator = (
     page: Page, 
@@ -7,7 +8,7 @@ export const getElementLocator = (
     globalConfig: GlobalConfig,
 ): ElementLocator => {
 
-    const currentPage = getCurrentPage(page, globalConfig)
+    const currentPage = getCurrentPageId(page, globalConfig)
 
     const { pageElementMappings } = globalConfig;
 

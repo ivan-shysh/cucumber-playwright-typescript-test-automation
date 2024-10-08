@@ -52,7 +52,8 @@ export const getCurrentPageId = (
     const { pagesConfig } = globalConfig; //will retun all page mappings - it will grab all the page mappings for each of 
     // defined pages in our pages.json
 
-    const pageConfigPageids = Object.keys(pagesConfig)
+    const pageConfigPageids = Object.keys(pagesConfig) //will return an array of page ids, that are properties
+    // of the pagesConfig object
 
     const { pathname: currentPath } = new URL(page.url())
 
