@@ -57,7 +57,9 @@ export const getCurrentPageId = (
 
     const { pathname: currentPath } = new URL(page.url())
 
-    const currentPageId = pageConfigPageids.find(pageId =>
+    const currentPageId = pageConfigPageids.find(pageId => // .find() is an array method
+        // it will find the first element in the array that passes the test, like: array.find((element) => condition);
+
         pathMatchesPageId(currentPath, pageId, globalConfig)
 );
 
