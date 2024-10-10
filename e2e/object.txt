@@ -1,0 +1,22 @@
+const globalConfig = {
+    hostsConfig: {
+        "localhost": "http://localhost:3000/"
+    },
+    pagesConfig: {
+        "home": {
+            "route": "/"
+        },
+        "contacts": {
+            "route": "/contacts",
+            "regex": "^/contacts$"
+        }
+    },
+    pageElementMappings: {
+        "common": {
+            "header logo": "[data-id='header-logo']"
+        },
+        "home": {
+            "contacts header": "[data-id='contacts']"
+        }
+    }
+};

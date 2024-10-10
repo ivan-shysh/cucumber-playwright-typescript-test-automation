@@ -10,12 +10,11 @@ Then(
         const {
             screen: { page },
             globalConfig,
-            globalVariables,
         } = this;
 
         console.log(`the ${elementKey} should contain the text ${expectedElementText}`) 
 
-        const elementIdentifier = getElementLocator(page, elementKey, globalVariables, globalConfig)
+        const elementIdentifier = getElementLocator(page, elementKey,globalConfig)
 
         const content = await page.textContent(elementIdentifier)
 

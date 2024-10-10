@@ -8,7 +8,12 @@ export const navigateToPage = async (
 ): Promise<void> => {
     const {
         UI_AUTOMATION_HOST: hostName = 'localhost',
-    } = process.env;
+    } = process.env; /* This code is saying, "Give me the value of the UI_AUTOMATION_HOST environment variable. 
+    If it doesn't exist, use 'localhost' as the default value and assign it to the hostName variable. 
+    It is using object destructuring to extract a value from the process.env object, 
+    which typically contains environment variables in a Node.js application. Example result of this
+    destructuring: 
+    const hostHame = 'localhost'*/
 
     const hostPath = hostsConfig[`${hostName}`];
 
@@ -30,13 +35,41 @@ const pathMatchesPageId = (
     return pageRegex.test(path);
 };
 
-export const currentPathMatchesPagId = (
+export const currentPathMatchesPageId = (
     page: Page,
     pageId: PageId,
     globalConfig: GlobalConfig,
 ): boolean => {
-    const { pathname:currentPath } = new URL(page.url()) 
+    const { pathname:currentPath } = new URL(page.url()) // page.url is PW method
     return pathMatchesPageId(currentPath, pageId, globalConfig);
 };
-/* URL is a built-in TypeScript feature. It offers a structured way of using new URLs while making sure that 
-they are valid. It will throw errors when attempting to create invalid URLs. */
+
+export const getCurrentPageId = (
+    page: Page,
+    globalConfig: GlobalConfig,
+): PageId => {
+
+    const { pagesConfig } = globalConfig; //will retun all page mappings - it will grab all the page mappings for each of 
+    // defined pages in our pages.json
+
+    const pageConfigPageids = Object.keys(pagesConfig) //will return an array of page ids(string), that are properties
+    // of the pagesConfig object
+
+    const { pathname: currentPath } = new URL(page.url())
+
+    const currentPageId = pageConfigPageids.find(pageId => // .find() is an array method
+        // it will find the first element in the array that passes the test, like: array.find((element) => condition);
+
+        pathMatchesPageId(currentPath, pageId, globalConfig)
+);
+
+if(!currentPageId) {
+    throw Error(
+        `Failed to get page name from current route ${currentPath} \
+         possible pages: ${JSON.stringify((pagesConfig))}`
+    )
+}
+
+return currentPageId;
+
+}

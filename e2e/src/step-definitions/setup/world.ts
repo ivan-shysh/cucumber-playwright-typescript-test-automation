@@ -7,12 +7,14 @@ import playwright, {
 } from "playwright";
 import { env } from '../../env/parseEnv'
 import { World, IWorldOptions, setWorldConstructor} from "@cucumber/cucumber";
-import { GlobalConfig, GlobalVariables } from "../../env/global";
+import { GlobalConfig } from "../../env/global";
 
 //Purpose: This part of the code is defining a type named Screen. 
 //This is not creating an object but specifying a blueprint for what an object of type Screen should look like. 
-//It's a contract or a template stating that any Screen object will have three properties: browser (of type Browser), context (of type BrowserContext), and page (of type Page). 
-//Each of these types (Browser, BrowserContext, and Page) are also defined by Playwright and represent different aspects of a browser automation setup.
+//It's a contract or a template stating that any Screen object will have three properties: browser (of type Browser), 
+//context (of type BrowserContext), and page (of type Page). 
+//Each of these types (Browser, BrowserContext, and Page) are also defined by Playwright 
+//and represent different aspects of a browser automation setup.
 export type Screen = {
     browser: Browser;
     context: BrowserContext;
@@ -25,12 +27,9 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         super(options);
 
         this.globalConfig = options.parameters as GlobalConfig;
-        this.globalVariables = { currentScreen: ""}
     }
 
     globalConfig: GlobalConfig;
-
-    globalVariables: GlobalVariables;
 
     screen!: Screen;
 // remove 
@@ -39,8 +38,9 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         await this.screen?.context?.close();
         await this.screen?.browser?.close();
 
-        const browser = await this.newBrowser(); // We will create a custom function here that will determine our new browser based on an environment variable we set
-        // and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit
+        const browser = await this.newBrowser(); /* We will create a custom function here that 
+        will determine our new browser based on an environment variable we set
+        and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit */
         const context = await browser.newContext(contextOptions);
         const page = await context.newPage();
 
@@ -49,7 +49,7 @@ export class ScenarioWorld extends World { // this is inheritance - a fundamenta
         return this.screen;
     }
 
-    private newBrowser = async (): Promise<Browser> => {
+    private newBrowser = async (): Promise<Browser> => { // This method is a property of ScenarioWorld class
 
         const automationBrowsers = ['chromium', 'firefox', 'webkit']
         // Using typeof with indexed access to get the type of an element in the array
