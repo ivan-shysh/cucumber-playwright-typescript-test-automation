@@ -41,6 +41,7 @@ export const currentPathMatchesPageId = (
     globalConfig: GlobalConfig,
 ): boolean => {
     const { pathname:currentPath } = new URL(page.url()) // page.url is PW method
+    console.log(`currentPath: ${currentPath}`)
     return pathMatchesPageId(currentPath, pageId, globalConfig);
 };
 
@@ -51,9 +52,11 @@ export const getCurrentPageId = (
 
     const { pagesConfig } = globalConfig; //will retun all page mappings - it will grab all the page mappings for each of 
     // defined pages in our pages.json
+    console.log("pagesConfig: ", pagesConfig)
 
     const pageConfigPageids = Object.keys(pagesConfig) //will return an array of page ids(string), that are properties
     // of the pagesConfig object
+    console.log("pageConfigPageids: ", pageConfigPageids)
 
     const { pathname: currentPath } = new URL(page.url())
 
@@ -62,6 +65,8 @@ export const getCurrentPageId = (
 
         pathMatchesPageId(currentPath, pageId, globalConfig)
 );
+
+console.log("currentPageId: ", currentPageId)
 
 if(!currentPageId) {
     throw Error(
