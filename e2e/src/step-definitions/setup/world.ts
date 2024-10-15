@@ -21,8 +21,7 @@ export type Screen = {
     page: Page;
 };
 
-export class ScenarioWorld extends World { // this is inheritance - a fundamental concept of OOP; 
-//SW inherits all the properties and methods from the 'World' class but also adds its own properties or methods or modifies existings ones
+export class ScenarioWorld extends World {
     constructor(options: IWorldOptions) { 
         super(options);
 
