@@ -3,7 +3,7 @@ import { waitFor } from '../support/wait-for-behavior'
 import { getElementLocator } from '../support/web-element-helper'
 import { ScenarioWorld } from './setup/world'
 import { ElementKey } from '../env/global'
-import { inputValue } from '../support/html-behavior'
+import { inputValue, selectValue } from '../support/html-behavior'
 
 Then (
     /^I fill in the "([^"]*)" input with "([^"]*)"$/,
