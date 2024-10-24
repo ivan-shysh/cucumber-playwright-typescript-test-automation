@@ -3,5 +3,6 @@
     "name" : "[data-id='name']",
     "gender" : "[data-id='gender']",
     "phone" : "[data-id='phone']",
-    "street" : "[data-id='street']"
+    "street" : "[data-id='street']",
+    "city" : "[data-id='city']"
 }
