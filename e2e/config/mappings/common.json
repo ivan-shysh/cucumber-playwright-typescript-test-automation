@@ -1,4 +1,5 @@
 {
     "header logo": "[data-id='header-logo']",
-    "name" : "[data-id='name']"
+    "name" : "[data-id='name']",
+    "gender" : "[data-id='gender']"
 }

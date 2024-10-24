@@ -25,6 +25,31 @@ Then (
             await inputValue(page, elementIdentifier, input)
         }
         return result;
+        });
+    }
+)
+
+Then(
+    /^I select "([^"]*)" option from the "([^"]*)"$/,
+    async function(this: ScenarioWorld, option: string, elementKey: ElementKey) {
+        const {
+            screen: { page },
+            globalConfig,
+        } = this;
+
+        console.log(`I select the ${option} option from the ${elementKey}`)
+
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
+
+        await waitFor(async () => {
+            const result = await page.waitForSelector(elementIdentifier, {
+                state: 'visible'
+            })
+            
+            if(result) {
+                await selectValue(page, elementIdentifier, option)
+            }
+            return result;
         })
     }
 )
