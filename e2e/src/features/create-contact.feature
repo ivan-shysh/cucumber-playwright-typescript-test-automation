@@ -12,3 +12,5 @@ Scenario: As a user I expect to be able to create a new contact
     And I fill in the "street" input with "123 Fake Street"
     And I fill in the "city" input with "Melbourne"
     And I click the "save" button
+
+    And I am directed to the "home" page
