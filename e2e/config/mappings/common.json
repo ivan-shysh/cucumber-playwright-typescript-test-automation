@@ -2,5 +2,6 @@
     "header logo": "[data-id='header-logo']",
     "name" : "[data-id='name']",
     "gender" : "[data-id='gender']",
-    "phone" : "[data-id='phone']"
+    "phone" : "[data-id='phone']",
+    "street" : "[data-id='street']"
 }
