@@ -30,7 +30,7 @@ Then (
 )
 
 Then(
-    /^I select "([^"]*)" option from the "([^"]*)"$/,
+    /^I select the "([^"]*)" option from the "([^"]*)"$/,
     async function(this: ScenarioWorld, option: string, elementKey: ElementKey) {
         const {
             screen: { page },
