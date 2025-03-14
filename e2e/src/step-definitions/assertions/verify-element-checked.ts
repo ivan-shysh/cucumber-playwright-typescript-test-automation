@@ -5,20 +5,20 @@ import { getElementLocator } from '../../support/web-element-helper';
 import { ElementKey } from '../../env/global';
 
 Then(
-    /^the "([^"]*)" radio button should be checked$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey) {
+    /^the "([^"]*)" radio button should( not)? be checked$/,
+    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean) {
         const {
             screen: { page },
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} radio button should be checked`);
+        console.log(`the ${elementKey} radio button should ${negate ? 'not' : ''} be checked`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
         await waitFor ( async () => { 
             const isElementChecked = await page.isChecked(elementIdentifier)
-            return isElementChecked;
+            return isElementChecked === !negate;
         });
     }
 )
