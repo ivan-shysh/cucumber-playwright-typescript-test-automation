@@ -1,3 +1,4 @@
 {
-    "female" : "[value='female']"
+    "female" : "[value='female']",
+    "male" : "[value='male']"
 }
