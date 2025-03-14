@@ -10,3 +10,5 @@ Feature: As a user I can interact with radio buttons
         And the "female" radio button should be checked
         Then I check the "male" radio button 
         And the "male" radio button should be checked
+        And I check the "female" radio button
+        And the "female" radio button should be checked
