@@ -5,14 +5,14 @@ import { getElementLocator } from '../../support/web-element-helper'
 import { waitFor } from '../../support/wait-for-behavior';
 
 Then(
-    /^the "([^"]*)" should contain the text "(.*)"$/, // adding regex that accepts 'something' in double quotes here as well for two paremeters passed via home-page.feature
-    async function(this: ScenarioWorld, elementKey: ElementKey, expectedElementText: string) {
+    /^the "([^"]*)" should( not)? contain the text "(.*)"$/, // adding regex that accepts 'something' in double quotes here as well for two paremeters passed via home-page.feature
+    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, expectedElementText: string) {
         const {
             screen: { page },
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should contain the text ${expectedElementText}`) 
+        console.log(`the ${elementKey} should ${negate ? 'not' : ''} contain the text ${expectedElementText}`) 
 
         const elementIdentifier = getElementLocator(page, elementKey,globalConfig)
 
@@ -20,7 +20,7 @@ Then(
 
         await waitFor ( async () => {
             const elementText = await page.textContent(elementIdentifier)
-            return elementText?.includes(expectedElementText)
+            return elementText?.includes(expectedElementText) === !negate;
         });  
     }
 )
