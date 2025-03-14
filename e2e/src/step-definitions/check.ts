@@ -22,7 +22,7 @@ Then(
                 state: 'visible',
             });
             if (result) {
-                await checkElement(elementIdentifier);
+                await checkElement(page,elementIdentifier);
             }
             return result
         });
