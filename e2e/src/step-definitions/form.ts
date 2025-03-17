@@ -5,7 +5,7 @@ import { ScenarioWorld } from './setup/world'
 import { ElementKey } from '../env/global'
 import { inputValue, selectValue } from '../support/html-behavior'
 
-Then (
+Then(
     /^I fill in the "([^"]*)" input with "([^"]*)"$/,
     async function(this: ScenarioWorld, elementKey: ElementKey, input: string) {
     const {
