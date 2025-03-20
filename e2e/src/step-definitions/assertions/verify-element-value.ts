@@ -1,6 +1,7 @@
 import { Then } from '@cucumber/cucumber';
 import { ScenarioWorld } from '../setup/world';
 import { ElementKey } from '../../env/global';
+import { getValue } from '../../support/html-behavior';
 import { getElementLocator } from '../../support/web-element-helper'
 import { waitFor } from '../../support/wait-for-behavior';
 
