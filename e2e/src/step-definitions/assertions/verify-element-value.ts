@@ -43,3 +43,22 @@ Then(
         });
     }
 );
+
+Then(
+    /^the "([^"]*)" should( not)? contain the value "(.*)"$/,
+    async function(this: ScenarioWorld, negate: boolean, elementKey: ElementKey, elementValue:string) {
+        const {
+            screen: { page },
+            globalConfig,
+        } = this;
+
+        console.log(`the ${elementKey} should ${negate ? 'not' : ''} contain the value ${elementValue}`)
+
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
+
+        await waitFor ( async () => {
+            const elementAttribute = await getValue(page, elementIdentifier)
+            return elementAttribute?.includes(elementValue) === !negate;
+        })
+    }
+);
