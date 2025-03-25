@@ -12,5 +12,11 @@ export const getElementLocator = (
 
     const { pageElementMappings } = globalConfig;
 
+    console.log('🌐 getElementLocator()');
+    console.log('🧭 Current page:', currentPage);
+    console.log('🔑 Element key:', elementKey);
+    console.log('📦 Page element mappings:', pageElementMappings[currentPage]);
+
+
     return pageElementMappings[currentPage]?.[elementKey] || pageElementMappings.common?.[elementKey]
 }

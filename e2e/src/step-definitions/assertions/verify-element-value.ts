@@ -47,7 +47,7 @@ Then(
 
 Then(
     /^the "([^"]*)" should( not)? contain the value "(.*)"$/,
-    async function(this: ScenarioWorld, negate: boolean, elementKey: ElementKey, elementValue:string) {
+    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue:string) {
         const {
             screen: { page },
             globalConfig,
@@ -56,6 +56,10 @@ Then(
         console.log(`the ${elementKey} should ${negate ? 'not' : ''} contain the value ${elementValue}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
+
+        console.log('👉 Looking up element key:', elementKey);
+        console.log('👉 Resolved element identifier:', elementIdentifier);
+
 
         await waitFor ( async () => {
             const elementAttribute = await getValue(page, elementIdentifier)
