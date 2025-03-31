@@ -21,4 +21,6 @@ Feature: As a user I can interact with autocomplete inputs
         Then the "outlined required" should equal the value "Testing"
         Then the "outlined disabled" should equal the value "Talks"
         Then the "outlined read only" should equal the value "Hub"
+        And the "oulined required" should be enabled
+        And the "outlined disabled" should not be enabled
         

@@ -40,7 +40,10 @@ export class ScenarioWorld extends World {
         const browser = await this.newBrowser(); /* We will create a custom function here that 
         will determine our new browser based on an environment variable we set
         and that environment variable will dictate if our tests run on Chromium, Firefox, WebKit */
-        const context = await browser.newContext(contextOptions);
+        const context = await browser.newContext({
+            ...(contextOptions || {}),
+            viewport:null,
+    });
         const page = await context.newPage();
 
         this.screen = { browser, context, page };
@@ -62,7 +65,10 @@ export class ScenarioWorld extends World {
         const browser = await browserType.launch({
             devtools: process.env.DEVTOOLS !== 'false',
             headless: process.env.HEADLESS !== 'false',
-            args: ['--disable-web-security', '--disable-features=IsolateOrigins, site-per-process'],
+            args: [ '---start-maximized', 
+                    '--disable-web-security', 
+                    '--disable-features=IsolateOrigins, site-per-process',
+                ],
         });
         return browser;
     };
