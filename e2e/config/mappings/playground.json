@@ -1,8 +1,8 @@
 {
     "female" : "[value='female']",
     "male" : "[value='male']",
-    "female radio button label" : "[data-id='female-radio-button']",
-    "male radio button label" : "[data-id='male-radio-button']",
+    "female label" : "[data-id='female-radio-button']",
+    "male label" : "[data-id='male-radio-button']",
     "movies" : "[id='movies-input']",
     "the godfather" : "//li[text()='The Godfather']",
     "outlined required" : "[id='outlined-required']",
