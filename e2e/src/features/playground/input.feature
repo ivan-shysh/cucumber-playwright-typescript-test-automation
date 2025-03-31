@@ -19,4 +19,6 @@ Feature: As a user I can interact with autocomplete inputs
         And I click the "playground" button
         When I am directed to the "playground" page
         Then the "outlined required" should equal the value "Testing"
+        Then the "outlined disabled" should equal the value "Talks"
+        Then the "outlined read only" should equal the value "Hub"
         
