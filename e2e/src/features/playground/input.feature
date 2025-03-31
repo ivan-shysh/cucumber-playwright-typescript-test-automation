@@ -18,4 +18,5 @@ Feature: As a user I can interact with autocomplete inputs
         Given I am on the "home" page
         And I click the "playground" button
         When I am directed to the "playground" page
+        And the 'outlined required' should equal the value 'Testing'
         
