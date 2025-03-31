@@ -5,5 +5,6 @@
     "male radio button label" : "[data-id='male-radio-button']",
     "movies" : "[id='movies-input']",
     "the godfather" : "//li[text()='The Godfather']",
-    "outlined required" : "[id='outlined-required']"
+    "outlined required" : "[id='outlined-required']",
+    "outlined disabled" : "[id='outlined-disabled']"
 }
