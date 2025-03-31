@@ -1,6 +1,5 @@
 Feature: As a user I can interact with autocomplete inputs
 
-    @dev
     @smoke
     @regression
     Scenario: As a user I can interact and assert on autocomplete inputs
@@ -11,3 +10,12 @@ Feature: As a user I can interact with autocomplete inputs
         And I click the "the godfather" button
         And the "movies" should contain the value "The Godfather"
         And the "movies" should not contain the value "The Godfather: Part II"
+
+    @dev
+    @smoke  
+    @regression
+    Scenario: As a user I can interact and assert on inputs
+        Given I am on the "home" page
+        And I click the "playground" button
+        When I am directed to the "playground" page
+        
