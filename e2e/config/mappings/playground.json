@@ -9,5 +9,5 @@
     "outlined disabled" : "[id='outlined-disabled']",
     "outlined read only" : "[id='outlined-read-only-input']",
     "outlined error" : "[id='outlined-error-helper-text-label']", 
-    "outline-error-text" : "[id='outlined-error-helper-text-helper-text']"
+    "outlined error text" : "[id='outlined-error-helper-text-helper-text']"
 }
