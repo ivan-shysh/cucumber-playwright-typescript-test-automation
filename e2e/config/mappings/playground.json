@@ -10,7 +10,7 @@
     "outlined read only" : "[id='outlined-read-only-input']",
     "outlined error" : "[id='outlined-error-helper-text-label']", 
     "outlined error text" : "[id='outlined-error-helper-text-helper-text']",
-    "blue" : "[id='blue-radio-button']",
+    "blue" : "[data-id='blue-radio-button']",
     "purple" : "[id='purple-radio-button']",
     "green" : "[id='green-radio-button']",
     "grey" : "[id='grey-radio-button']",
