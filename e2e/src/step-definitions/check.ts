@@ -13,7 +13,7 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`I check the ${elementKey} button`);
+        console.log(`I check the ${elementKey} check box|radio button`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
