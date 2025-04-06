@@ -13,3 +13,4 @@ Scenario: As a user I can interact and assert on checkboxes
     And the "red" check box should not be checked
     And the "purple" check box should not be checked
     And I uncheck the "green" check box
+    And the "green" check box should not be checked
