@@ -6,7 +6,7 @@ import { getElementLocator } from '../support/web-element-helper';
 import { ElementKey } from '../env/global';
 
 Then(
-    /^I check the "([^"]*)" (?:check box|radio button)$/,
+    /^I (check)?(uncheck) the "([^"]*)" (?:check box|radio button)$/,
     async function(this: ScenarioWorld, elementKey: ElementKey) {
         const {
             screen: { page },
