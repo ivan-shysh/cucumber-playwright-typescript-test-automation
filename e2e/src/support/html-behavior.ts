@@ -1,4 +1,4 @@
-import { Page } from 'playwright';
+import { Page, Frame } from 'playwright';
 import { ElementLocator } from '../env/global';
 
 export const clickElement = async (
@@ -56,6 +56,6 @@ export const getIframeElement = async (
 ): Promise<Frame | undefined | null> => {
     await page.waitForSelector (iframeIdentifier);
     const elementHandle = await page.$(iframeIdentifier);
-    const iframe = await elementHandle?.contentFrame();
-    return elementFrame;
+    const elementIframe = await elementHandle?.contentFrame();
+    return elementIframe;
 }
