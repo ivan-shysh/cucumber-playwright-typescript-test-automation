@@ -1,6 +1,7 @@
 import { Then } from '@cucumber/cucumber'
 import { waitFor } from '../support/wait-for-behavior'
 import { getElementLocator } from '../support/web-element-helper'
+import { getIframeElement, inputValueOnIframe } from '../support/html-behavior'
 import { ScenarioWorld } from './setup/world'
 import { ElementKey } from '../env/global'
 

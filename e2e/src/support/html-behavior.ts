@@ -59,3 +59,11 @@ export const getIframeElement = async (
     const elementIframe = await elementHandle?.contentFrame();
     return elementIframe;
 }
+
+export const inputValueOnIframe = async (
+    elementIframe: Frame,
+    elementIdentifier: ElementLocator,
+    inputValue: string
+): Promise<void> => {
+    await elementIframe.fill(elementIdentifier, inputValue);
+}
