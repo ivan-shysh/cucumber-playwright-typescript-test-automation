@@ -49,3 +49,13 @@ export const getValue = async (
     })
     return value
 };
+
+export const getIframeElement = async (
+    page: Page,
+    iframeIdentifier: ElementLocator
+): Promise<Frame | undefined | null> => {
+    await page.waitForSelector (iframeIdentifier);
+    const elementHandle = await page.$(iframeIdentifier);
+    const iframe = await elementHandle?.contentFrame();
+    return elementFrame;
+}
