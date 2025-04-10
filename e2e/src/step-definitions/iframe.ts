@@ -20,7 +20,7 @@ Then(
         const elementIframe = await getIframeElement(page, iframeIdentifier);
 
         await waitFor(async () => { 
-            const result = await elementIframe.waitForSelector(iframeIdentifier,
+            const result = await page.waitForSelector(iframeIdentifier,
                 { state: 'visible' }
             )
 
