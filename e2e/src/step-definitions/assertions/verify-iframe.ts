@@ -13,7 +13,7 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate ? 'not' : ''} be displayed`);
+        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate ? 'not ' : ''} be displayed`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
