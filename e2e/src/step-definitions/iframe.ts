@@ -18,5 +18,18 @@ Then(
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
         const elementIframe = await getIframeElement(page, iframeIdentifier);
 
+        await waitFor(async () => { 
+            const result = await elementIframe.waitForSelector(iframeIdentifier,
+                { state: 'visible' }
+            )
+
+            if (result) {
+                if (elementIframe) {
+                    await inputValueOnIframe(elementIframe, elementIdentifier, inputValue)
+                } 
+            }
+            return result;
+        })
+
     }
 )
