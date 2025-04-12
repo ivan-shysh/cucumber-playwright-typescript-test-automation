@@ -1,6 +1,6 @@
 import { Then } from '@cucumber/cucumber';
 import { ScenarioWorld } from '../setup/world';
-import { waitFor } from '../support/wait-for-behavior';
+import { waitFor } from '../../support/wait-for-behavior';
 import { ElementKey } from '../../env/global';
 
 Then(
