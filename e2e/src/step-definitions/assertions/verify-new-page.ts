@@ -23,9 +23,6 @@ Then(
 
         await waitFor(async () => {
             let pages = context.pages();
-            for (const [i, p] of pages.entries()) {
-                console.log(`Tab ${i + 1} title: "${await p.title()}"`);
-              }
             const tabTitle = await pages[pageIndex].title()
             return tabTitle?.includes(expectedTitle) === !negate;
         });
