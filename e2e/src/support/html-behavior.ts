@@ -24,7 +24,7 @@ export const selectValue = async (
 ): Promise<void> => {
     await page.focus(elementIdentifier);
     await page.selectOption(elementIdentifier, option)
-};
+}
 
 export const checkElement = async (
     page: Page,
@@ -38,7 +38,7 @@ export const uncheckElement = async (
     elementIdentifier: ElementLocator
 ): Promise<void> => {
     await page.uncheck(elementIdentifier);
-}
+};
 
 export const getValue = async (
     page: Page,
@@ -46,24 +46,24 @@ export const getValue = async (
 ): Promise<string | null> => {
     const value = await page.$eval<string, HTMLSelectElement>(elementIdentifier, el => {
         return el.value;
-    })
-    return value
+    });
+    return value;
 };
 
 export const getIframeElement = async (
     page: Page,
     iframeIdentifier: ElementLocator
 ): Promise<Frame | undefined | null> => {
-    await page.waitForSelector (iframeIdentifier);
+    await page.waitForSelector(iframeIdentifier);
     const elementHandle = await page.$(iframeIdentifier);
     const elementIframe = await elementHandle?.contentFrame();
     return elementIframe;
-}
+};
 
 export const inputValueOnIframe = async (
     elementIframe: Frame,
     elementIdentifier: ElementLocator,
-    inputValue: string
+    input: string
 ): Promise<void> => {
-    await elementIframe.fill(elementIdentifier, inputValue);
-}
+    await elementIframe.fill(elementIdentifier, input);
+};
