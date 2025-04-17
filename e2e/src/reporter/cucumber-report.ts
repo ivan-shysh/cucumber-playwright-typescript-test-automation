@@ -14,4 +14,4 @@ const options: Options = {
     launchReport: false,
 }
 
-reporter.generate(options);
+reporter.generate(options)

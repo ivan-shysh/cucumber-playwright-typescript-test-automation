@@ -5,7 +5,6 @@ export type ElementKey = string;
 export type ElementLocator = string;
 export type PageElementMappings = Record<PageId, Record<ElementKey, ElementLocator>>;
 
-
 export type GlobalConfig = {
     hostsConfig: HostsConfig;
     pagesConfig: PagesConfig;

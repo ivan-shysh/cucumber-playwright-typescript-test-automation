@@ -17,6 +17,16 @@ export const inputValue = async (
     await page.fill(elementIdentifier, input)
 }
 
+export const inputValueOnPage = async (
+    pages: Array<Page>,
+    pageIndex: number,
+    elementIdentifier: ElementLocator,
+    input: string,
+): Promise<void> => {
+    await pages[pageIndex].focus(elementIdentifier)
+    await pages[pageIndex].fill(elementIdentifier, input)
+}
+
 export const selectValue = async (
     page: Page,
     elementIdentifier: ElementLocator,
