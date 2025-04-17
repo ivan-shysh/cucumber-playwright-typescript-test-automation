@@ -1,12 +1,12 @@
-import { Page, Frame } from 'playwright';
-import { ElementLocator } from '../env/global';
+import { Page, Frame, BrowserContext } from 'playwright';
+import { ElementLocator } from '../env/global'
 
 export const clickElement = async (
     page: Page,
     elementIdentifier: ElementLocator,
 ): Promise<void> => {
-    await page.click(elementIdentifier);
-};
+    await page.click(elementIdentifier)
+}
 
 export const inputValue = async (
     page: Page,
