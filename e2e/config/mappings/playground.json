@@ -15,6 +15,6 @@
     "green" : "[data-id='green-radio-button']",
     "grey" : "[data-id='grey-radio-button']",
     "red" : "[data-id='red-radio-button']",
-    "basic iframe" : "[data-id='basic-iframe']", 
+    "basic iframe" : "[id='basic-iframe']", 
     "new tab" : "[id='new-tab-button']"
 }
