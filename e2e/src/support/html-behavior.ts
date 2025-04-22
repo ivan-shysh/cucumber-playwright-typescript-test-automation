@@ -40,15 +40,41 @@ export const uncheckElement = async (
     await page.uncheck(elementIdentifier);
 }
 
+// export const getValue = async (
+//     page: Page,
+//     elementIdentifier: ElementLocator
+// ): Promise<string | null> => {
+//     const value = await page.$eval<string, HTMLSelectElement>(elementIdentifier, el => {
+//         return el.value;
+//     })
+//     return value
+// };
+
+/**
+ * Returns the value of an input-like element on the page.
+ *
+ * @remarks
+ * Replaced direct `$eval()` with `waitForSelector()` to ensure the element exists and is visible
+ * before accessing `.value`. Added type guards for `<input>`, `<textarea>`, and `<select>` to avoid
+ * runtime type mismatches and increase compatibility across form element types.
+ * This change resolves intermittent failures due to rendering delays in async-driven UIs. The original function is above for further study 
+ * and understanding long-term implications.
+ */
+
 export const getValue = async (
     page: Page,
     elementIdentifier: ElementLocator
 ): Promise<string | null> => {
-    const value = await page.$eval<string, HTMLSelectElement>(elementIdentifier, el => {
-        return el.value;
-    })
-    return value
+    await page.waitForSelector(elementIdentifier, { state: 'visible' });
+
+    return await page.$eval(elementIdentifier, (el: Element) => {
+        if (el instanceof HTMLInputElement || el instanceof HTMLTextAreaElement || el instanceof HTMLSelectElement) {
+            return el.value;
+        }
+        return null;
+    });
 };
+
 
 export const getIframeElement = async (
     page: Page,
