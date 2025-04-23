@@ -38,8 +38,8 @@ Then(
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
-        console.log('👉 Looking up element key:', elementKey);
-        console.log('👉 Resolved element identifier:', elementIdentifier);
+        //console.log('👉 Looking up element key:', elementKey);
+        //console.log('👉 Resolved element identifier:', elementIdentifier);
 
         await waitFor ( async () => {
             const elementText = await page.textContent(elementIdentifier)
