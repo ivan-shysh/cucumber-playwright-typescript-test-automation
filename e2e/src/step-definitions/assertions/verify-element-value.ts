@@ -34,7 +34,7 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate ? 'not' : ''} equal the text ${expectedElementText}`)
+        console.log(`the ${elementKey} should ${negate?'not ':'' }equal the text ${expectedElementText}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
