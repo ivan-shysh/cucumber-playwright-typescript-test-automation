@@ -14,5 +14,5 @@ export const getJsonFromFile = <T = Record<string, string>>(path: string): T => 
 };
 
 export const envNumber = (key: string): number => {
-    return Number(env[key]);
+    return Number(env(key));
 }
