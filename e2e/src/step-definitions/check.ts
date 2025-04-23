@@ -13,7 +13,7 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`I ${unchecked?'uncheck ': 'check'} the ${elementKey} check box|radio button`);
+        console.log(`I ${unchecked?'uncheck ':'check'} the ${elementKey} check box|radio button`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
