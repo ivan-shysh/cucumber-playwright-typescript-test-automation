@@ -17,9 +17,6 @@ Then(
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
-        console.log("check ", checked);
-        console.log("uncheck ", unchecked);
-
         await waitFor ( async () => {
             const result = await page.waitForSelector(elementIdentifier, {
                 state: 'visible',
