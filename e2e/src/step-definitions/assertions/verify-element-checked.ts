@@ -12,7 +12,7 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} check box|radio button should ${negate?'not ':''}be checked`);
+        console.log(`the ${elementKey} check box|radio button should ${negate?'not ':'' }be checked`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
