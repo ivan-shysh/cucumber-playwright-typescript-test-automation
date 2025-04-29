@@ -16,7 +16,7 @@ Then(
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
 
-        await waitFor ( async () => { 
+        await waitFor (async () => { 
             const isElementChecked = await page.isChecked(elementIdentifier)
             return isElementChecked === !negate;
         });

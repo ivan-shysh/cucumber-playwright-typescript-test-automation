@@ -15,11 +15,11 @@ Then(
 
         console.log(`the ${elementKey} should ${negate?'not ' :'' }contain the text ${expectedElementText}`) 
 
-        const elementIdentifier = getElementLocator(page, elementKey,globalConfig)
+        const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
         //const content = await page.textContent(elementIdentifier) - modle 9 does not have it
 
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementText = await page.textContent(elementIdentifier)
             return elementText?.includes(expectedElementText) === !negate;
         });  
@@ -27,7 +27,7 @@ Then(
 )
 
 Then(
-    /^the "([^"]*)" should( not)? equal the text "(.*)"$/,
+    /^the "([^"]*)" should( not)? equal the text  "([^"]*)"/, // previous regex "(.*)"$ - will need to see if this was a breaking change
     async function(this: ScenarioWorld, elementKey: ElementKey,negate: boolean, expectedElementText: string) {
         const { 
             screen: { page },
@@ -41,7 +41,7 @@ Then(
         //console.log('👉 Looking up element key:', elementKey);
         //console.log('👉 Resolved element identifier:', elementIdentifier);
 
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementText = await page.textContent(elementIdentifier)
             return (elementText === expectedElementText) === !negate
         });
@@ -56,15 +56,15 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate ? 'not' : ''} contain the value ${elementValue}`)
+        console.log(`the ${elementKey} should ${negate?'not ':'' }contain the value ${elementValue}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
-        console.log('👉 Looking up element key:', elementKey);
-        console.log('👉 Resolved element identifier:', elementIdentifier);
+        //console.log('👉 Looking up element key:', elementKey);
+        //console.log('👉 Resolved element identifier:', elementIdentifier);
 
 
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementAttribute = await getValue(page, elementIdentifier)
             return elementAttribute?.includes(elementValue) === !negate;
         })
@@ -72,18 +72,18 @@ Then(
 );
 
 Then(
-    /^the "([^"]*)" should( not)? equal the value "(.*)"$/,
-    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue:string) {
+    /^the "([^"]*)" should( not)? equal the value "([^"]*)"$/, // previous regex "(.*)"$ - will need to see if this was a breaking change
+    async function(this: ScenarioWorld, elementKey: ElementKey, negate: boolean, elementValue: string) {
         const {
             screen: { page },
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} should ${negate ? 'not' : ''} equal the value ${elementValue}`)
+        console.log(`the ${elementKey} should ${negate?'not ':''}equal the value ${elementValue}`)
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig)
 
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementAttribute = await getValue(page, elementIdentifier)
             return (elementAttribute === elementValue) === !negate;
         })
