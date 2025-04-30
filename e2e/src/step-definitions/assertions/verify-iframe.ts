@@ -13,13 +13,13 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate ? 'not ' : ''} be displayed`);
+        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate?'not ':'' }be displayed`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
         const elementIframe = await getIframeElement(page, iframeIdentifier);  
         
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const isElementVisible = (await elementIframe?.$(elementIdentifier)) != null;
             return isElementVisible === !negate
         });
@@ -34,13 +34,13 @@ Then(
             globalConfig,
         } = this;
 
-        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate ? 'not' : ''} contain the text ${expectedElementText}`)
+        console.log(`the ${elementKey} on the ${iframeName} iframe should ${negate?'not ':'' }contain the text ${expectedElementText}`);
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);
         const elementIframe = await getIframeElement(page, iframeIdentifier);  
         
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementText = await elementIframe?.textContent(elementIdentifier)
             return elementText?.includes(expectedElementText) === !negate;
             })
@@ -55,13 +55,13 @@ Then(
             globalConfig,
         } = this;    
 
-        console.log(`the ${elementKey} should ${negate ? 'not' : ''} equal the text ${expectedElementText}`)        
+        console.log(`the ${elementKey} should ${negate?'not ':'' }equal the text ${expectedElementText}`)        
 
         const elementIdentifier = getElementLocator(page, elementKey, globalConfig);        
         const iframeIdentifier = getElementLocator(page, iframeName, globalConfig);        
         const elementIframe = await getIframeElement(page, iframeIdentifier);        
         
-        await waitFor ( async () => {
+        await waitFor(async () => {
             const elementText = await elementIframe?.textContent(elementIdentifier)
             return (elementText === expectedElementText) === !negate;
         })
