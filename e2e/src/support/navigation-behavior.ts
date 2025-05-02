@@ -54,13 +54,13 @@ export const getCurrentPageId = (
     // defined pages in our pages.json
     console.log("pagesConfig: ", pagesConfig)
 
-    const pageConfigPageids = Object.keys(pagesConfig) //will return an array of page ids(string), that are properties
+    const pageConfigPageIds = Object.keys(pagesConfig) //will return an array of page ids(string), that are properties
     // of the pagesConfig object
-    console.log("pageConfigPageids: ", pageConfigPageids)
+    console.log("pageConfigPageids: ", pageConfigPageIds)
 
     const { pathname: currentPath } = new URL(page.url())
 
-    const currentPageId = pageConfigPageids.find(pageId => // .find() is an array method
+    const currentPageId = pageConfigPageIds.find(pageId => // .find() is an array method
         // it will find the first element in the array that passes the test, like: array.find((element) => condition);
 
         pathMatchesPageId(currentPath, pageId, globalConfig)
