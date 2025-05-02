@@ -15,5 +15,5 @@ export const waitFor = async <T>(
         console.log(`Waiting ${wait}ms`);
     }
 
-    throw new Error(`Waiting ${wait}ms`);
+    throw new Error(`Wait time of ${timeout}ms exceeded`);
 }
